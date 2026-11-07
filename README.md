@@ -1,13 +1,14 @@
- <p align="center">
-  <img src="https://placehold.co/1200x300/161b22/ffffff?text=TikTok+Repost+Remover" alt="TikTok Repost Remover Banner" width="100%" />
-</p>
+&#x20;\<p align="center">
+&#x20; \<img src="[https://raw.githubusercontent.com/givenglorious/tiktok_auto_delete_repost/main/assets/banner.png](https://raw.githubusercontent.com/givenglorious/tiktok_auto_delete_repost/main/assets/banner.png)" alt="TikTok Repost Remover" width="100%" />
+\</p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.9%2B-blue" alt="Python">
-  <img src="https://img.shields.io/badge/Automation-Selenium-green" alt="Selenium">
-  <img src="https://img.shields.io/badge/Browser-Chrome-yellow" alt="Chrome">
-  <img src="https://img.shields.io/badge/Status-Open%20Source-brightgreen" alt="Status">
-</p>
+\<p align="center">
+&#x20; \<img src="[https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python\&logoColor=white)" alt="Python">
+&#x20; \<img src="[https://img.shields.io/badge/Selenium-Automation-43B02A?logo=selenium&logoColor=white](https://img.shields.io/badge/Selenium-Automation-43B02A?logo=selenium\&logoColor=white)" alt="Selenium">
+&#x20; \<img src="[https://img.shields.io/badge/Google_Chrome-Browser_Automation-4285F4?logo=googlechrome&logoColor=white](https://img.shields.io/badge/Google_Chrome-Browser_Automation-4285F4?logo=googlechrome\&logoColor=white)" alt="Google Chrome">
+&#x20; \<img src="[https://img.shields.io/badge/WebDriver_Manager-ChromeDriver-orange](https://img.shields.io/badge/WebDriver_Manager-ChromeDriver-orange)" alt="WebDriver Manager">
+&#x20; \<img src="[https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)" alt="Platform">
+\</p>
 
 # TikTok Repost Remover
 
@@ -24,7 +25,7 @@
 - **Selective deletion** — Finds reposts matching specific caption keywords.
 - **Automatic navigation** — Moves between videos without manually opening each one.
 - **Debugging support** — Saves screenshots and HTML when the removal button cannot be found.
-- **Manual verification** — Supports manual CAPTCHA and OTP verification.
+- **Manual verification** — Allows users to complete CAPTCHA and OTP verification manually.
 
 ---
 
@@ -44,9 +45,9 @@ My friend had **1,600+ reposts 💀**.
 
 So what started as a small favor turned into an automation project.
 
-<p align="center">
-  <img src="chat_proof.jpeg" alt="Original chat request" width="70%">
-</p>
+\<p align="center">
+&#x20; \<img src="chat_proof.jpeg" alt="Original chat request" width="70%">
+\</p>
 
 I built this tool by inspecting TikTok's web interface using Chrome DevTools and testing its page elements individually.
 
@@ -60,7 +61,7 @@ Since TikTok doesn't provide public documentation for this particular interface,
        TikTok Account
               |
               v
-       Open Chrome
+        Open Chrome
               |
               v
         Login Process
@@ -69,20 +70,20 @@ Since TikTok doesn't provide public documentation for this particular interface,
        Open User Profile
               |
               v
-        Repost Tab
+          Repost Tab
               |
               v
        Select Delete Mode
               |
-       +------+------+
-       |             |
-       v             v
-   Delete All    Delete Specific
-       |             |
-       v             v
-  Remove Repost  Match Keywords
-       |             |
-       +------+------+
+        +-----+-----+
+        |           |
+        v           v
+    Delete All   Delete Specific
+        |           |
+        v           v
+   Remove Repost  Match Keywords
+        |           |
+        +-----+-----+
               |
               v
        Navigate Videos
@@ -90,8 +91,6 @@ Since TikTok doesn't provide public documentation for this particular interface,
               v
        Display Results
 ```
-
-The goal is simple:
 
 **Manual Repost Management → Automated Repost Management**
 
@@ -104,6 +103,7 @@ The goal is simple:
 Automatically processes reposted videos one by one.
 
 The script:
+
 1. Opens the user's repost tab.
 2. Opens the first reposted video.
 3. Finds the remove-repost button.
@@ -121,7 +121,7 @@ Example:
 Enter keywords: music, gaming, football
 ```
 
-The script checks captions and processes matching reposts.
+The script checks available captions and processes matching reposts.
 
 ### 3. Automatic Debugging
 
@@ -139,12 +139,13 @@ These files help identify changes in TikTok's page structure.
 
 ## Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| Python | Core programming language |
-| Selenium | Browser automation |
-| ChromeDriver | Controls Google Chrome |
-| WebDriver Manager | Manages ChromeDriver installation |
+| Technology        | Purpose                        |
+| ----------------- | ------------------------------ |
+| Python            | Core programming language      |
+| Selenium          | Browser automation             |
+| Google Chrome     | Browser controlled by Selenium |
+| ChromeDriver      | Browser automation driver      |
+| WebDriver Manager | ChromeDriver management        |
 
 ---
 
@@ -153,8 +154,8 @@ These files help identify changes in TikTok's page structure.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
-cd YOUR_REPOSITORY
+git clone https://github.com/givenglorious/tiktok_auto_delete_repost.git
+cd tiktok_auto_delete_repost
 ```
 
 ### 2. Install dependencies
@@ -173,9 +174,9 @@ LOGIN_ID = "YOUR_EMAIL"
 PASSWORD = "YOUR_PASSWORD"
 ```
 
-- `USERNAME`: TikTok profile whose reposts you want to manage.
-- `LOGIN_ID`: Email or username used to log in.
-- `PASSWORD`: TikTok account password.
+- `USERNAME` — TikTok profile whose reposts you want to manage.
+- `LOGIN_ID` — Email or username used to log in.
+- `PASSWORD` — TikTok account password.
 
 > **Security:** Never commit your actual credentials to GitHub. Keep your configured local file private.
 
@@ -193,7 +194,7 @@ Make sure Google Chrome is installed on your computer.
 
 After launching the script, Chrome will open automatically.
 
-Complete the login process. If TikTok requests CAPTCHA or OTP verification, complete it manually.
+Complete the login process. If TikTok requests CAPTCHA or OTP verification, complete it manually in the browser.
 
 Once logged in, the terminal displays:
 
@@ -201,7 +202,7 @@ Once logged in, the terminal displays:
 === TikTok Repost Remover ===
 
 Pilih mode:
-
+x
 1. Hapus SEMUA postingan ulang
 2. Hapus HANYA repost tertentu
 
@@ -233,7 +234,7 @@ Masukkan kata kunci caption:
 music, gaming, football
 ```
 
-Only reposts with matching caption keywords will be processed.
+Only reposts with matching available caption text will be processed.
 
 ---
 
@@ -244,8 +245,8 @@ tiktok_auto_delete_repost/
 │
 ├── .vscode/
 │
-├── debug_screenshots/
-│   └── Debug screenshots and HTML
+├── assets/
+│   └── banner.png
 │
 ├── chat_proof.jpeg
 │
@@ -258,6 +259,8 @@ tiktok_auto_delete_repost/
 └── README.md
 ```
 
+The `debug_screenshots/` directory is generated automatically when the script encounters a specific debugging condition.
+
 ---
 
 ## Important Notes
@@ -265,11 +268,11 @@ tiktok_auto_delete_repost/
 - The delete-all process may not finish in a single run.
 - CAPTCHA, OTP verification, rate limits, or network issues may interrupt automation.
 - TikTok frequently changes its web interface and element selectors.
-- Some login methods, including Google, Facebook, and Apple, may require manual login.
+- Google, Facebook, and Apple login methods may require manual login.
 - Always verify the results after running the script.
 - Only use this tool on accounts you own or have explicit permission to manage.
 
-**This project is an independent automation tool and is not affiliated with or endorsed by TikTok.**
+**This is an independent automation project and is not affiliated with, endorsed by, or officially connected to TikTok.**
 
 ---
 
@@ -284,18 +287,16 @@ tiktok_auto_delete_repost/
 
 ---
 
----
-
 ## License
 
 See [LICENSE](LICENSE) for license information, if included in the repository.
 
 ---
 
-<p align="center">
-  Built by <a href="https://github.com/givenglorious">Given Glorious</a>
-</p>
+\<p align="center">
+&#x20; Built by \<a href="[https://github.com/givenglorious](https://github.com/givenglorious)">Given Glorious\</a>
+\</p>
 
-<p align="center">
-  <i>Built to solve a real problem through automation.</i>
-</p>
+\<p align="center">
+&#x20; \<i>Built to solve a real problem through automation.\</i>
+\</p>
