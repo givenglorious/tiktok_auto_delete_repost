@@ -1,122 +1,301 @@
-# TikTok Repost Remover (Selenium)
+ <p align="center">
+  <img src="https://placehold.co/1200x300/161b22/ffffff?text=TikTok+Repost+Remover" alt="TikTok Repost Remover Banner" width="100%" />
+</p>
 
-A Python + Selenium script that deletes TikTok reposts automatically. You can delete all reposts, or only the ones that match a caption keyword.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.9%2B-blue" alt="Python">
+  <img src="https://img.shields.io/badge/Automation-Selenium-green" alt="Selenium">
+  <img src="https://img.shields.io/badge/Browser-Chrome-yellow" alt="Chrome">
+  <img src="https://img.shields.io/badge/Status-Open%20Source-brightgreen" alt="Status">
+</p>
+
+# TikTok Repost Remover
+
+> **Automatically remove TikTok reposts using Python and Selenium.**
+>
+> A browser automation tool that helps users clean up their TikTok repost history. Remove all reposts or selectively delete them based on caption keywords.
+
+---
+
+## What it does
+
+- **Automated login** — Opens TikTok and assists with account login.
+- **Delete all reposts** — Automatically navigates through reposted videos and removes them one by one.
+- **Selective deletion** — Finds reposts matching specific caption keywords.
+- **Automatic navigation** — Moves between videos without manually opening each one.
+- **Debugging support** — Saves screenshots and HTML when the removal button cannot be found.
+- **Manual verification** — Supports manual CAPTCHA and OTP verification.
+
+---
 
 ## Backstory
 
-At 00:56 AM, a friend messaged me. He asked me to build a tool that deletes TikTok reposts automatically. At first, I did not take it seriously. I thought: "This is a small thing. Reposts are public anyway. Why repost something if you will delete it later?" I only wanted to help a little bit.
+At 00:56 AM, a friend messaged me with a request: build a tool that automatically deletes TikTok reposts.
 
-But after I looked closer, I saw this was a real problem for many people. Some accounts have a lot of reposts, sometimes from many years of using TikTok. And TikTok **does not have a button to delete all reposts at once**. The only official way is to open each repost one by one, then press the remove button, again and again. If you have thousands of reposts, this is not realistic to do by hand.
+At first, I didn't take it seriously. I thought it was just a small favor.
 
-To show you the size of the problem: my friend who asked for this tool had **1,600+ reposts 💀**. So this small favor became a real project.
+But after looking into it, I realized it was a real problem.
 
-![Chat proof](chat_proof.jpeg)
+TikTok doesn't provide a built-in option to delete all reposts at once. Users have to open each repost individually and remove it manually.
 
-I built this script by testing TikTok's page directly, using DevTools to check each element one by one. TikTok has no public documentation for the repost feature, and their class names and selectors change often.
+Imagine doing that for thousands of reposts.
+
+My friend had **1,600+ reposts 💀**.
+
+So what started as a small favor turned into an automation project.
+
+<p align="center">
+  <img src="chat_proof.jpeg" alt="Original chat request" width="70%">
+</p>
+
+I built this tool by inspecting TikTok's web interface using Chrome DevTools and testing its page elements individually.
+
+Since TikTok doesn't provide public documentation for this particular interface, the implementation relies on browser selectors that may change over time.
+
+---
+
+## How it works
+
+```text
+       TikTok Account
+              |
+              v
+       Open Chrome
+              |
+              v
+        Login Process
+              |
+              v
+       Open User Profile
+              |
+              v
+        Repost Tab
+              |
+              v
+       Select Delete Mode
+              |
+       +------+------+
+       |             |
+       v             v
+   Delete All    Delete Specific
+       |             |
+       v             v
+  Remove Repost  Match Keywords
+       |             |
+       +------+------+
+              |
+              v
+       Navigate Videos
+              |
+              v
+       Display Results
+```
+
+The goal is simple:
+
+**Manual Repost Management → Automated Repost Management**
 
 ---
 
 ## Features
 
-- **Automatic login** to your TikTok account (username/email + password).
-- **Mode 1 — Delete all reposts**: opens the first repost video, removes it, then automatically goes to the next video using the "Go to next video" button. It repeats until there are no reposts left.
-- **Mode 2 — Delete specific reposts**: searches reposts by a caption keyword, and only deletes the ones that match.
-- **Automatic debug info**: if a step fails (a button is not found), the script saves a screenshot and the page's HTML into a `debug_screenshots/` folder. This makes it easier to find the problem.
+### 1. Delete All Reposts
+
+Automatically processes reposted videos one by one.
+
+The script:
+1. Opens the user's repost tab.
+2. Opens the first reposted video.
+3. Finds the remove-repost button.
+4. Removes the repost.
+5. Navigates to the next video.
+6. Repeats until it reaches the end or encounters an issue.
+
+### 2. Delete Specific Reposts
+
+Remove only reposts matching specific caption keywords.
+
+Example:
+
+```text
+Enter keywords: music, gaming, football
+```
+
+The script checks captions and processes matching reposts.
+
+### 3. Automatic Debugging
+
+When the removal button cannot be found, the script saves:
+
+```text
+debug_screenshots/
+├── gagal_tombol_remove_repost.png
+└── gagal_tombol_remove_repost.html
+```
+
+These files help identify changes in TikTok's page structure.
 
 ---
 
-## Setup (Installation)
+## Tech Stack
 
-Make sure Python 3.9+ is installed. Then install the needed packages with pip:
-
-```bash
-pip install selenium webdriver-manager
-```
-
-Short explanation of each package:
-
-| Package | What it does |
+| Technology | Purpose |
 |---|---|
-| `selenium` | The main library that controls the browser (clicking, filling forms, reading page elements, etc.) automatically |
-| `webdriver-manager` | Automatically downloads and manages the ChromeDriver version that matches your Chrome browser, so you don't need to download it yourself |
-
-> You don't need to install Chrome separately if it is already on your computer. `webdriver-manager` will match the driver to it automatically.
-
-Run the script like this:
-
-```bash
-python tiktok_delete_repost.py
-```
+| Python | Core programming language |
+| Selenium | Browser automation |
+| ChromeDriver | Controls Google Chrome |
+| WebDriver Manager | Manages ChromeDriver installation |
 
 ---
 
-## How to fill in the `if __name__ == "__main__":` part
+## Installation
 
-This is the entry point of the program. It is the part that runs first when you run the file directly (`python tiktok_delete_repost.py`). Here is what each part means:
+### 1. Clone the repository
 
-```python
-if __name__ == "__main__":
-
-    print("=== TikTok Repost Remover ===\n")
-
-    USERNAME = "USERNAME TIKTOK"   # your TikTok username (without @)
-    LOGIN_ID = "EMAIL"             # the email/username you use to log in
-    PASSWORD = "TIKTOK_PASSWORD"   # your TikTok account password
+```bash
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+cd YOUR_REPOSITORY
 ```
 
-- **`USERNAME`** → the TikTok profile whose reposts you want to delete. The script uses this to open `tiktok.com/@USERNAME`. Write it without the `@` symbol.
-- **`LOGIN_ID`** → the email or username you use to **log in**. It is usually the same as `USERNAME`, but they are separate because some people log in with an email instead of a username.
-- **`PASSWORD`** → your TikTok account password. **Warning:** this is saved as plain text in the file. Do not share this file with other people, and do not upload it to a public GitHub while it is filled in.
+### 2. Install dependencies
 
-```python
-    driver = start_driver()
-    login_with_credentials(driver, LOGIN_ID, PASSWORD)
+```bash
+pip install -r requirements.txt
 ```
 
-- `start_driver()` → opens a new Chrome window controlled by Selenium.
-- `login_with_credentials(...)` → automatically fills in TikTok's login form with `LOGIN_ID` and `PASSWORD`. If TikTok shows a CAPTCHA or a verification code (this can happen, because TikTok often detects automated activity), the script will **pause**. You need to solve it by hand in the browser, then press Enter in the terminal to continue.
+### 3. Configure your credentials
+
+Open `tiktok.py` and configure:
 
 ```python
-    try:
-        print("\nPilih mode:")
-        print("  1. Hapus SEMUA postingan ulang (Delete All Your Repost)")
-        print("  2. Hapus HANYA repost tertentu (berdasarkan kata kunci caption)")
-        pilihan = input("Masukkan 1 atau 2: ").strip()
+USERNAME = "YOUR_TIKTOK_USERNAME"
+LOGIN_ID = "YOUR_EMAIL"
+PASSWORD = "YOUR_PASSWORD"
 ```
 
-- After you log in, the script shows a menu in the terminal. You just type `1` or `2` and press Enter. You don't need to edit the code.
+- `USERNAME`: TikTok profile whose reposts you want to manage.
+- `LOGIN_ID`: Email or username used to log in.
+- `PASSWORD`: TikTok account password.
 
-```python
-        if pilihan == "2":
-            kata_kunci_input = input(
-                "Masukkan kata kunci caption (pisahkan dengan koma jika lebih dari satu): "
-            ).strip()
-            keywords = [k.strip() for k in kata_kunci_input.split(",") if k.strip()]
-            if not keywords:
-                print("Tidak ada kata kunci dimasukkan. Membatalkan proses.")
-            else:
-                delete_target_reposts(driver, USERNAME, keywords)
-        else:
-            delete_all_reposts(driver, USERNAME)
+> **Security:** Never commit your actual credentials to GitHub. Keep your configured local file private.
+
+### 4. Run the application
+
+```bash
+python tiktok.py
 ```
 
-- If you choose **2**, the script asks you to type caption keywords. You can type more than one keyword, separated by commas. Any repost with one of these keywords in the caption will be deleted.
-- If you choose **1** (or anything other than "2"), it runs the "delete all" mode automatically.
+Make sure Google Chrome is installed on your computer.
 
-```python
-    finally:
-        input("\nTekan ENTER untuk menutup browser...")
-        driver.quit()
+---
+
+## Usage
+
+After launching the script, Chrome will open automatically.
+
+Complete the login process. If TikTok requests CAPTCHA or OTP verification, complete it manually.
+
+Once logged in, the terminal displays:
+
+```text
+=== TikTok Repost Remover ===
+
+Pilih mode:
+
+1. Hapus SEMUA postingan ulang
+2. Hapus HANYA repost tertentu
+
+Masukkan 1 atau 2:
 ```
 
-- When the process finishes (success or error), the script waits for you to press Enter before it closes the browser. This gives you time to check the result yourself first.
+### Mode 1 — Delete All
+
+Select:
+
+```text
+1
+```
+
+The script automatically processes available reposts.
+
+### Mode 2 — Delete Specific Reposts
+
+Select:
+
+```text
+2
+```
+
+Enter caption keywords:
+
+```text
+Masukkan kata kunci caption:
+music, gaming, football
+```
+
+Only reposts with matching caption keywords will be processed.
+
+---
+
+## Project Structure
+
+```text
+tiktok_auto_delete_repost/
+│
+├── .vscode/
+│
+├── debug_screenshots/
+│   └── Debug screenshots and HTML
+│
+├── chat_proof.jpeg
+│
+├── requirements.txt
+│
+├── tes.py
+│
+├── tiktok.py
+│
+└── README.md
+```
 
 ---
 
 ## Important Notes
 
-- **FYI from the code comment:** the "delete all reposts" process might **not finish in one run**. For example, it can stop because of a CAPTCHA, rate limit, or slow internet. If this happens, just run the script again. It will continue with the reposts that are still left.
-- Only use this script **on your own account** (or an account you have full permission to manage).
-- TikTok changes its page structure often. If a step fails in the future, check the `debug_screenshots/` folder (made automatically), and compare it with the current HTML using DevTools (F12) to update the selectors in the code.
-- If you log in with Google, Facebook, or Apple (not a direct TikTok email + password), `login_with_credentials` will not work. You will need to log in by hand in the Chrome window before you continue.
-"# tiktok_auto_delete_repost" 
+- The delete-all process may not finish in a single run.
+- CAPTCHA, OTP verification, rate limits, or network issues may interrupt automation.
+- TikTok frequently changes its web interface and element selectors.
+- Some login methods, including Google, Facebook, and Apple, may require manual login.
+- Always verify the results after running the script.
+- Only use this tool on accounts you own or have explicit permission to manage.
+
+**This project is an independent automation tool and is not affiliated with or endorsed by TikTok.**
+
+---
+
+## Limitations
+
+- Depends on TikTok's current web interface.
+- CSS selectors and element attributes may become outdated.
+- Requires an active internet connection.
+- CAPTCHA and OTP cannot be reliably automated.
+- Deletion speed depends on network conditions and TikTok's response.
+- Keyword matching depends on the available caption text.
+
+---
+
+---
+
+## License
+
+See [LICENSE](LICENSE) for license information, if included in the repository.
+
+---
+
+<p align="center">
+  Built by <a href="https://github.com/givenglorious">Given Glorious</a>
+</p>
+
+<p align="center">
+  <i>Built to solve a real problem through automation.</i>
+</p>
