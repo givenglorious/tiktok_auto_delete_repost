@@ -1,14 +1,14 @@
-&#x20;\<p align="center">
-&#x20; \<img src="[https://raw.githubusercontent.com/givenglorious/tiktok_auto_delete_repost/main/assets/banner.png](https://raw.githubusercontent.com/givenglorious/tiktok_auto_delete_repost/main/assets/banner.png)" alt="TikTok Repost Remover" width="100%" />
-\</p>
+ <p align="center">
+  <img src="https://raw.githubusercontent.com/givenglorious/tiktok_auto_delete_repost/main/assets/banner.png" alt="TikTok Repost Remover" width="100%">
+</p>
 
-\<p align="center">
-&#x20; \<img src="[https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white](https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python\&logoColor=white)" alt="Python">
-&#x20; \<img src="[https://img.shields.io/badge/Selenium-Automation-43B02A?logo=selenium&logoColor=white](https://img.shields.io/badge/Selenium-Automation-43B02A?logo=selenium\&logoColor=white)" alt="Selenium">
-&#x20; \<img src="[https://img.shields.io/badge/Google_Chrome-Browser_Automation-4285F4?logo=googlechrome&logoColor=white](https://img.shields.io/badge/Google_Chrome-Browser_Automation-4285F4?logo=googlechrome\&logoColor=white)" alt="Google Chrome">
-&#x20; \<img src="[https://img.shields.io/badge/WebDriver_Manager-ChromeDriver-orange](https://img.shields.io/badge/WebDriver_Manager-ChromeDriver-orange)" alt="WebDriver Manager">
-&#x20; \<img src="[https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)" alt="Platform">
-\</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Selenium-Automation-43B02A?logo=selenium&logoColor=white" alt="Selenium">
+  <img src="https://img.shields.io/badge/Google_Chrome-Browser_Automation-4285F4?logo=googlechrome&logoColor=white" alt="Google Chrome">
+  <img src="https://img.shields.io/badge/WebDriver_Manager-ChromeDriver-orange" alt="WebDriver Manager">
+  <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey" alt="Platform">
+</p>
 
 # TikTok Repost Remover
 
@@ -45,9 +45,9 @@ My friend had **1,600+ reposts 💀**.
 
 So what started as a small favor turned into an automation project.
 
-\<p align="center">
-&#x20; \<img src="chat_proof.jpeg" alt="Original chat request" width="70%">
-\</p>
+<p align="center">
+  <img src="chat_proof.jpeg" alt="Original chat request" width="70%">
+</p>
 
 I built this tool by inspecting TikTok's web interface using Chrome DevTools and testing its page elements individually.
 
@@ -139,13 +139,13 @@ These files help identify changes in TikTok's page structure.
 
 ## Tech Stack
 
-| Technology        | Purpose                        |
-| ----------------- | ------------------------------ |
-| Python            | Core programming language      |
-| Selenium          | Browser automation             |
-| Google Chrome     | Browser controlled by Selenium |
-| ChromeDriver      | Browser automation driver      |
-| WebDriver Manager | ChromeDriver management        |
+| Technology | Purpose |
+|---|---|
+| Python | Core programming language |
+| Selenium | Browser automation |
+| Google Chrome | Browser controlled by Selenium |
+| ChromeDriver | Browser automation driver |
+| WebDriver Manager | ChromeDriver management |
 
 ---
 
@@ -202,7 +202,7 @@ Once logged in, the terminal displays:
 === TikTok Repost Remover ===
 
 Pilih mode:
-x
+
 1. Hapus SEMUA postingan ulang
 2. Hapus HANYA repost tertentu
 
@@ -293,10 +293,10 @@ See [LICENSE](LICENSE) for license information, if included in the repository.
 
 ---
 
-\<p align="center">
-&#x20; Built by \<a href="[https://github.com/givenglorious](https://github.com/givenglorious)">Given Glorious\</a>
-\</p>
+<p align="center">
+  Built by <a href="https://github.com/givenglorious">Given Glorious</a>
+</p>
 
-\<p align="center">
-&#x20; \<i>Built to solve a real problem through automation.\</i>
-\</p>
+<p align="center">
+  <i>Built to solve a real problem through automation.</i>
+</p>
