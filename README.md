@@ -1,6 +1,6 @@
  <p align="center">
   <img src="https://raw.githubusercontent.com/givenglorious/tiktok_auto_delete_repost/main/assets/banner.png" alt="TikTok Repost Remover" width="100%">
-</p>
+</p
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white" alt="Python">
